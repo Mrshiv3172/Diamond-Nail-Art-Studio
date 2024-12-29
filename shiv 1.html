@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Nail Art Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #ff6f61;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            position: relative;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        nav a:hover {
+            border-bottom: 2px solid #ff6f61;
+        }
+        .hamburger {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+        }
+        .menu-items {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+        }
+        .menu-items a {
+            margin: 0;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: #333;
+            width: 100%;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .dropdown-menu a {
+            display: block;
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 5px 0;
+        }
+        .dropdown-menu a:hover {
+            background-color: #ff6f61;
+        }
+        @media (max-width: 768px) {
+            nav {
+                position: relative;
+                justify-content: space-between;
+            }
+            .menu-items {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+        }
+        .whatsapp {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #25d366;
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        .whatsapp a {
+            color: white;
+            text-decoration: none;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: #333;
+            width: 100%;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .dropdown-menu a {
+            display: block;
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 5px 0;
+        }
+        .dropdown-menu a:hover {
+            background-color: #ff6f61;
+        }
+        @media (max-width: 768px) {
+            nav {
+                position: relative;
+                justify-content: space-between;
+            }
+            .menu-items {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+        }
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 50px 20px;
+        }
+        .service-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 250px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+        .service-card iframe {
+            width: 220px;
+            height: 180px;
+            margin-bottom: 15px;
+        }
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #ff6f61;
+            font-family: 'Arial', sans-serif;
+        }
+        .service-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+        .contact-info {
+            padding: 40px 20px;
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ff6f61;
+        }
+        .contact-info .contact-details p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+        .contact-info .contact-details a {
+            color: #333;
+        }
+        .contact-info h4 {
+            font-size: 1.5rem;
+            margin-top: 30px;
+        }
+        .contact-info .social-links p {
+            font-size: 1.1rem;
+            margin: 5px 0;
+        }
+        .social-links a {
+            color: #ff6f61;
+            text-decoration: none;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Diamond Nail Art Studio</h1>
+        <p>Your beauty, our expertise – indulge in luxurious nail and beauty treatments!</p>
+    </header>
+
+    <nav>
+        <span class="hamburger">&#9776;</span>
+        <div class="menu">
+            <div class="menu-items">
+                <a href="#about">About Us</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact Us</a>
+            </div>
+        </div>
+        <div class="dropdown-menu">
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+    </nav>
+
+    <section id="about" class="section">
+        <h2>About Us</h2>
+        <p>At Diamond Nail Art Studio, we offer top-notch nail care services and personalized beauty treatments. Our goal is to make every client feel special and pampered with high-quality services.</p>
+    </section>
+
+    <section id="services" class="section">
+        <h2>Our Services</h2>
+        <div class="services">
+            <!-- Add your service cards here -->
+            <div class="service-card">
+                <iframe src="https://drive.google.com/file/d/1EQ2lBEqpBNR-t9iofAqHQs21jrz2ASkM/preview" allow="autoplay"></iframe>
+                <h3>Gel Manicure</h3>
+                <p>₹499</p>
+            </div>
+            <div class="service-card">
+                <iframe src="https://drive.google.com/file/d/15DdcNZ4prUNtwOgBbBFPHC3qZ9Li8U1g/preview" allow="autoplay"></iframe>
+                <h3>Nail Extension</h3>
+                <p>₹999</p>
+            </div>
+            <div class="service-card">
+                <iframe src="https://drive.google.com/file/d/10T_8fn0uS2VP3RwydI8M6-ZEqUEEWOvw/preview" allow="autoplay"></iframe>
+                <h3>Nail Art</h3>
+                <p>₹499</p>
+            </div>
+            <div class="service-card">
+                <iframe src="https://drive.google.com/file/d/13y9APBEBWUuWyJa9v8ilfoeq4Do63gWJ/preview" allow="autoplay"></iframe>
+                <h3>Nail Repair</h3>
+                <p>₹699</p>
+            </div>
+            <div class="service-card">
+                <iframe src="https://drive.google.com/file/d/1PT1ukOxiXJgzVwI0yef7kkdrqoDES52T/preview" allow="autoplay"></iframe>
+                <h3>Nail Designs</h3>
+                <p>₹499</p>
+            </div>
+            <div class="service-card">
+                <iframe src="https://drive.google.com/file/d/1hJ0PXluE733cre5UuLrIw0hIjV16VJ_O/preview" allow="autoplay"></iframe>
+                <h3>Nail Polish Changes</h3>
+                <p>₹499</p>
+            </div>
+            <div class="service-card">
+                <iframe src="https://drive.google.com/file/d/1roIQ1CALt38pNEEIy4u0gi06o_MaEP02/preview" allow="autoplay"></iframe>
+                <h3>Polish Removal</h3>
+                <p>₹699</p>
+            </div>
+            <div class="service-card">
+                <iframe src="https://drive.google.com/file/d/1MPTNeZ9huUtsLK0mKtpmJFEkidFWrqD4/preview" allow="autoplay"></iframe>
+                <h3>Back Massage</h3>
+                <p>₹599</p>
+            </div>
+            <div class="service-card">
+                <iframe src="https://drive.google.com/file/d/1Mps_owtJAwEDGb51BMgrqsELZyTo-wF9/preview" allow="autoplay"></iframe>
+                <h3>Pedicure</h3>
+                <p>₹499</p>
+            </div>
+            <div class="service-card">
+                <iframe src="https://drive.google.com/file/d/1GKckbOzymBxcRZ0sXonF29oP3lPyg44n/preview" allow="autoplay"></iframe>
+                <h3>Foot Massage</h3>
+                <p>₹499</p>
+            </div>
+            <div class="service-card">
+                <iframe src="https://drive.google.com/file/d/14af4OuM51uWh8GCNqOfITRndcL3cqIak/preview" allow="autoplay"></iframe>
+                <h3>Honey Hand Wax</h3>
+                <p>₹299</p>
+            </div>
+            <div class="service-card">
+                <iframe src="https://drive.google.com/file/d/1S3t04qAVBO0eX0WDzDtaU7RIodSMzGPV/preview" allow="autoplay"></iframe>
+                <h3>Manicure</h3>
+                <p>₹499</p>
+            </div>
+            <div class="service-card">
+                <iframe src="https://drive.google.com/file/d/1U8jgS615IJSPboQY3HW5aJGvGcN5sZeT/preview" allow="autoplay"></iframe>
+                <h3>Bridal Service</h3>
+                <p>₹4999</p>
+            </div>
+            <div class="service-card">
+                <iframe src="https://drive.google.com/file/d/1TpSBtJi9YthHOfPVwkDuDoiuqv_p7ThU/preview" allow="autoplay"></iframe>
+                <h3>Light Makeup</h3>
+                <p>₹1999</p>
+            </div>
+            <div class="service-card">
+                <iframe src="https://drive.google.com/file/d/13EHWeEWrBndNHzjo0cp1bQyEU57n2f1A/preview" allow="autoplay"></iframe>
+                <h3>HD Makeup</h3>
+                <p>₹2499</p>
+            </div>
+            <div class="service-card">
+                <iframe src="https://drive.google.com/file/d/1t1mAvarzREeqrlU-nDUDNjWud3q0nZeY/preview" allow="autoplay"></iframe>
+                <h3>Hair Spa</h3>
+                <p>₹1199</p>
+            </div>
+            <div class="service-card">
+                <iframe src="https://drive.google.com/file/d/1P_cAd2fLpyndqqxLsrTA-Y_8kLGaM76f/preview" allow="autoplay"></iframe>
+                <h3>Hair Cut</h3>
+                <p>₹50</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="products">
+        <h2>Our Products</h2>
+        <p>Coming soon! We will be uploading our exclusive range of beauty products shortly.</p>
+    </section>
+
+    <section id="contact" class="contact-info">
+        <h3>Contact Us</h3
+<section id="contact" class="contact-info">
+    <h3>Contact Us</h3>
+    <div class="contact-details">
+        <p><strong>Email:</strong> <a href="mailto:ritushivdhawan44@gmail.com">ritushivdhawan44@gmail.com</a></p>
+        <p><strong>Phone Numbers:</strong> <a href="tel:+919548344798">9548344798</a>, <a href="tel:+919756421930">9756421930</a></p>
+        <p><strong>Studio Address:</strong> Police line Hanuman Mandir, Shop No. 4, In Front of Idgah Station, Near Hotel Marc Royal, Agra</p>
+    </div>
+    <h4>Follow Us</h4>
+    <div class="social-links">
+        <p><strong>Facebook:</strong> <a href="https://www.facebook.com/share/1GAxDHNNot/?mibextid=wwXIfr" target="_blank">facebook.com/share/1GAxDHNNot</a></p>
+        <p><strong>Instagram:</strong> <a href="https://www.instagram.com/professional_ritu_dhawan?igsh=Y240N2VwN3I0MTAw" target="_blank">instagram.com/professional_ritu_dhawan</a></p>
+        <p><strong>Instagram (2nd link):</strong> <a href="https://www.instagram.com/diamond_nail_art_studio?igsh=M2pzeWpjanBoM2p2" target="_blank">instagram.com/diamond_nail_art_studio</a></p>
+        <p><strong>YouTube:</strong> <a href="https://tools.apgy.in/c/@nailartritudhawanagra4957" target="_blank">YouTube Channel</a></p>
+        <p><strong>Google:</strong> <a href="https://g.co/kgs/F2HFw3x" target="_blank">Diamond Nail Art Studio Agra</a></p>
+    </div>
+</section>
